@@ -1,8 +1,8 @@
 # **Conway's Game of Life**
 
-This project implements Conway's Game of Life using Python and Pygame. 
-Conway's Game of Life is a cellular automaton devised by mathematician John Conway.
-It simulates the evolution of a grid of cells based on simple rules.
+- This project implements Conway's Game of Life using Python and Pygame. 
+- Conway's Game of Life is a cellular automaton devised by mathematician John Conway.
+- It simulates the evolution of a grid of cells based on simple rules.
 
 ## **Execution Environment**
 - **Python**: 3.13 
