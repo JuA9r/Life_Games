@@ -28,7 +28,7 @@ It simulates the evolution of a grid of cells based on simple rules.
 3. Configure the game settings in the `config.ini` file (see [Configuration](#configuration)).
 4. Run the program:
    ```bash
-   python main.py
+   python run.py
    ```
 
 ## Features
