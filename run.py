@@ -42,8 +42,10 @@ class Cells:
         for y in range(self.y_cell):
             for x in range(self.x_cell):
                 neighbors = np.sum(
-                    self.grid[max(0, y-1):min(self.y_cell, y+2),
-                              max(0, x-1):min(self.x_cell, x+2)]
+                    self.grid[
+                        max(0, y-1):min(self.y_cell, y+2),
+                        max(0, x-1):min(self.x_cell, x+2)
+                    ]
                 ) - self.grid[y, x]
 
                 if self.grid[y, x] == 1 and (neighbors < 2 or neighbors > 3):
@@ -62,7 +64,9 @@ class LifeGameDisplay:
         self.cell_size = cell_size
         self.fps = fps
 
-        self.screen = pg.display.set_mode((self.x_cell * self.cell_size, self.y_cell * self.cell_size))
+        self.screen = pg.display.set_mode(
+            (self.x_cell * self.cell_size, self.y_cell * self.cell_size)
+        )
         pg.display.set_caption("Conway's Game of Life")
         self.clock = pg.time.Clock()
         self.life_game = Cells(x_cell, y_cell)
@@ -85,8 +89,14 @@ class LifeGameDisplay:
                     cell_y = mouse_y // self.cell_size
                     if 0 <= cell_x < self.x_cell and 0 <= cell_y < self.y_cell:
                         self.life_game.toggle_cell(cell_x, cell_y)
+                        print(
+                            f"\ncoordinate={mouse_x, mouse_y} \
+                            \ncell={cell_x, cell_y}"
+                        )
+
                     if event.type == pg.MOUSEMOTION:
-                        print(mouse_x, mouse_y)
+                        pass
+                        # print(mouse_x, mouse_y)
 
                 elif event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                     paused = not paused
@@ -101,7 +111,8 @@ class LifeGameDisplay:
             self.clock.tick(self.fps)
 
         pg.quit()
-        sys.exit()
+        if sys.exit:
+            print(f"\n{"-"*20}\nEnd of Program")
 
 
 def main():
